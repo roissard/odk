@@ -1,0 +1,31 @@
+version: '3'
+services:
+  tomcat:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 7081:8080
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:latest
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: odk
+      POSTGRES_USER: odk
+      POSTGRES_DB: odk
+  adminer:
+    image: adminer
+    ports:
+      - 7080:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    depends_on:
+      - postgres
+
+volumes:
+  db_data:
