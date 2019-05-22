@@ -15,7 +15,7 @@ Open:
 
 Then change the administrator default password by login to:
 
-    http://<RASPBERRY_IP>/odk-aggregate/multimode_login.html
+    http://<RASPBERRY_IP>/multimode_login.html
 
 Click "Sign in with Aggregate password" and enter:
 
