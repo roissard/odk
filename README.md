@@ -7,15 +7,15 @@ Run:
     cd odk
     bash ./install.sh
     bash ./prepare.sh
-    docker-compose up -d
+    systemctl start odk
 
 Open:
 
-    http://localhost:7081/odk-aggregate/
+    http://<RASPBERRY_IP>/
 
 Then change the administrator default password by login to:
 
-    http://localhost:7081/odk-aggregate/multimode_login.html
+    http://<RASPBERRY_IP>/odk-aggregate/multimode_login.html
 
 Click "Sign in with Aggregate password" and enter:
 

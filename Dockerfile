@@ -2,8 +2,8 @@ FROM tomcat:8.5
 
 WORKDIR /app
 
-#RUN apt-get update && apt-get install -y mc default-jdk
-RUN apt-get update && apt-get install -y default-jdk
+RUN apt-get update && apt-get install -y mc default-jdk
+#RUN apt-get update && apt-get install -y default-jdk
 
 #COPY tomcat-users.xml ${CATALINA_HOME}/conf/tomcat-users.xml
 #COPY context.xml ${CATALINA_HOME}/webapps/manager/META-INF/context.xml
@@ -24,4 +24,5 @@ RUN pwd && mkdir odktemp && \
     cp /app/jdbc.properties ./WEB-INF/classes/ && \
     cd /app && \
     mkdir ${CATALINA_HOME}/webapps/odk-aggregate && \
-    mv odktemp/* ${CATALINA_HOME}/webapps/odk-aggregate
+    rm -fr ${CATALINA_HOME}/ROOT/* && \
+    mv odktemp/* ${CATALINA_HOME}/webapps/ROOT
