@@ -24,5 +24,5 @@ RUN pwd && mkdir odktemp && \
     cp /app/jdbc.properties ./WEB-INF/classes/ && \
     cd /app && \
     mkdir ${CATALINA_HOME}/webapps/odk-aggregate && \
-    rm -fr ${CATALINA_HOME}/ROOT/* && \
+    rm -fr ${CATALINA_HOME}/webapps/ROOT/* && \
     mv odktemp/* ${CATALINA_HOME}/webapps/ROOT
