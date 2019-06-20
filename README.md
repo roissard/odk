@@ -3,7 +3,7 @@
 Run:
 
     apt-get install -y git
-    git clone https://github.com/roissard/odk.git
+    git clone https://github.com/CartONG/odk.git
     cd odk
     bash ./install.sh
     bash ./prepare.sh
