@@ -1,8 +1,9 @@
-FROM tomcat:8.5
+FROM tomcat:8.5-jre8-alpine
 
 WORKDIR /app
-
-RUN apt-get update && apt-get install -y mc default-jdk
+RUN apk update && apk upgrade && \
+    apk add openjdk8
+#RUN apk update && apk install -y openjdk8
 #RUN apt-get update && apt-get install -y default-jdk
 
 #COPY tomcat-users.xml ${CATALINA_HOME}/conf/tomcat-users.xml
