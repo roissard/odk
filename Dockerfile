@@ -16,13 +16,14 @@ RUN wget https://jdbc.postgresql.org/download/postgresql-9.4.1209.jre7.jar && \
 #    mv ODK-Aggregate-v2.0.3.war ${CATALINA_HOME}/webapps/ODK-Aggregate-v2.0.3.war
 #COPY ODK-Aggregate-v2.0.3.war ${CATALINA_HOME}/webapps/ODK-Aggregate-v2.0.3.war
 
-COPY ODK-Aggregate-v2.0.3.war jdbc.properties ./
+COPY ODK-Aggregate-v2.0.3.war jdbc.properties security.properties ./
 
 RUN pwd && mkdir odktemp && \
     cd odktemp && \
     ls -la /app && \
     jar -xvf /app/ODK-Aggregate-v2.0.3.war && \
     cp /app/jdbc.properties ./WEB-INF/classes/ && \
+    cp /app/security.properties ./WEB-INF/classes/ && \
     cd /app && \
     mkdir ${CATALINA_HOME}/webapps/odk-aggregate && \
     rm -fr ${CATALINA_HOME}/webapps/ROOT/* && \
